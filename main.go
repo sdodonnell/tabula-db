@@ -48,8 +48,6 @@ func connectToDB() *sql.DB {
 		panic(err)
 	}
 
-	fmt.Println("Successfuly connected!")
-
 	return db
 }
 
