@@ -1,4 +1,4 @@
-from .db import db
+from models import db
 
 class User(db.Model):
     __abstract__ = True

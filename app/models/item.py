@@ -1,4 +1,4 @@
-from .db import db
+from models import db
 
 class GradedItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)

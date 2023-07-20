@@ -1,4 +1,4 @@
-from .db import db
+from models import db
 
 current_enrollments = db.Table(
     'current_enrollments',
