@@ -1,24 +1,24 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.sqlite'
-db = SQLAlchemy(app)
-db.init_app(app)
+tabula = Flask(__name__)
+tabula.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.sqlite'
+db = SQLAlchemy()
+db.init_app(tabula)
 
-with app.app_context():
+with tabula.app_context():
     db.create_all()
 
-@app.route('/')
+@tabula.route('/')
 def hello_world():
     return "<p>Hello, world!</p>"
 
-@app.route('/user/<int:id>')
+@tabula.route('/user/<int:id>')
 def user(id):
     return f"<p>User number {id}</p>"
 
-@app.route('/dashboard')
+@tabula.route('/dashboard')
 def dashboard():
     return "<h1>Dashboard</h1>"
 
-from app import controller, models
+from app import models, controller
